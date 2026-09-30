@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Fake API и WebSocket</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Fake API и WebSocket</h1>
+
+        <p>
+            Fetch API, JSONPlaceholder, Socket.IO и Server-Sent Events
+        </p>
+    </header>
+
+
+    <!-- ================================= -->
+    <!-- FAKE API -->
+    <!-- ================================= -->
+
+    <section class="card">
+
+        <h2>1. Fake API — JSONPlaceholder</h2>
+
+        <div class="api-controls">
+
+            <select id="resourceSelect">
+
+                <option value="users">
+                    Пользователи
+                </option>
+
+                <option value="posts">
+                    Посты
+                </option>
+
+                <option value="comments">
+                    Комментарии
+                </option>
+
+            </select>
+
+            <button id="loadDataButton">
+                Загрузить данные
+            </button>
+
+        </div>
+
+        <div id="apiStatus" class="status">
+            Данные еще не загружены.
+        </div>
+
+        <div id="apiData" class="data-container">
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- WEBSOCKET CHAT -->
+    <!-- ================================= -->
+
+    <section class="card">
+
+        <h2>2. WebSocket / Socket.IO — Чат</h2>
+
+        <div
+            id="socketStatus"
+            class="status"
+        >
+            Подключение...
+        </div>
+
+
+        <div
+            id="chatMessages"
+            class="chat-messages"
+        >
+        </div>
+
+
+        <div class="chat-form">
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Ваше имя"
+                value="Пользователь"
+            >
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Введите сообщение..."
+            >
+
+            <button id="sendMessage">
+                Отправить
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- SERVER-SENT EVENTS -->
+    <!-- ================================= -->
+
+    <section class="card">
+
+        <h2>3. Server-Sent Events</h2>
+
+        <div
+            id="sseStatus"
+            class="status"
+        >
+            Подключение к SSE...
+        </div>
+
+        <p>
+            Сервер автоматически отправляет новый пост каждые 10 секунд.
+        </p>
+
+        <div
+            id="sseMessages"
+            class="data-container"
+        >
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- ERROR LOG -->
+    <!-- ================================= -->
+
+    <section class="card">
+
+        <h2>4. Состояние соединений</h2>
+
+        <div id="errorLog">
+            Ошибок пока нет.
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
